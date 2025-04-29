@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cluster Analysis and Spot check Validation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #222;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: #f5f5f5;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    nav button {
+      padding: 10px 15px;
+      font-size: 14px;
+      border: 1px solid #007BFF;
+      background-color: #ffffff;
+      color: #007BFF;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background-color: #007BFF;
+      color: #ffffff;
+    }
+
+    nav button.active {
+      background-color: #007BFF;
+      color: #ffffff;
+    }
+
+    .container {
+      display: flex;
+      height: calc(100vh - 140px); /* Header + Nav height */
+    }
+
+    .iframe-box {
+      flex: 1;
+      border: none;
+      overflow: hidden;
+      background-color: #ffffff;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-top: 2px solid #e0e0e0;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cluster Analysis and Spot-check Validation</h1>
+    <p>
+      This page contains the Clustering Analysis report and Spot-check Validation report for the Embeddings done for both Math and Read-write using questiontext.
+      <br />
+      <strong>Note:</strong> The reports are generated from the embeddings created on Questiontext from both Question Bank v1 & v2.
+      Models used Instructor-xl for math, bge-m3 for Read-write.
+    </p>
+  </header>
+
+  <nav>
+    <button onclick="highlightButton(this); loadContent('question bank v1/read-write')">question_bank_v1 → RW</button>
+    <button onclick="highlightButton(this); loadContent('question bank v1/math')">question_bank_v1 → Math</button>
+    <button onclick="highlightButton(this); loadContent('question bank v2/read-write')">question_bank_v2 → RW</button>
+    <button onclick="highlightButton(this); loadContent('question bank v2/math')">question_bank_v2 → Math</button>
+  </nav>
+
+  <div class="container">
+    <div class="iframe-box">
+      <iframe id="leftFrame" src=""></iframe>
+    </div>
+    <div class="iframe-box">
+      <iframe id="rightFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <!-- <footer>
+    &copy; Contains Embeddings generated on Questiontext from both Question Bank v1 & v2
+  </footer> -->
+
+  <script>
+    function highlightButton(button) {
+      const buttons = document.querySelectorAll('nav button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    }
+
+    function loadContent(basePath) {
+      document.getElementById('leftFrame').src = `${basePath}/combined_analysis_report.html`;
+      document.getElementById('rightFrame').src = `${basePath}/spot_check_validation_report.html`;
+      // changeFont('Arial, sans-serif'); // Example font change
+    }
+  </script>
+</body>
+</html>
