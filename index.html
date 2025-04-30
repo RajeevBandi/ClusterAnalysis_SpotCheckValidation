@@ -65,13 +65,30 @@
       height: calc(100vh - 140px); /* Header + Nav height */
     }
 
-    .iframe-box {
+/*     .iframe-box {
       flex: 1;
       border: none;
       overflow: hidden;
       background-color: #ffffff;
       box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    }
+    } */
+
+    .left-iframe-box {
+  flex: 0 0 60%;
+  border: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.right-iframe-box {
+  flex: 0 0 40%;
+  border: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
 
     iframe {
       width: 100%;
@@ -109,13 +126,14 @@
   </nav>
 
   <div class="container">
-    <div class="iframe-box">
-      <iframe id="leftFrame" src=""></iframe>
-    </div>
-    <div class="iframe-box">
-      <iframe id="rightFrame" src=""></iframe>
-    </div>
+  <div class="left-iframe-box">
+    <iframe id="leftFrame" src=""></iframe>
   </div>
+  <div class="right-iframe-box">
+    <iframe id="rightFrame" src=""></iframe>
+  </div>
+</div>
+
 
   <!-- <footer>
     &copy; Contains Embeddings generated on Questiontext from both Question Bank v1 & v2
